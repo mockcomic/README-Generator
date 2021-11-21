@@ -11,9 +11,8 @@ function renderLicenseBadge(license) {
   };
 };
 
+
 function generateMarkdown(data) {
-  console.log(data);
-  let x = renderLicenseBadge(data.license)
   return `
   # ${data.title} 
   ${renderLicenseBadge(data.license)}
@@ -22,7 +21,7 @@ function generateMarkdown(data) {
   
   * [Installation](#installation)
   * [Usage](#usage)
-  * [Contributing](#contribution)
+  * [Contributing](#Contributing)
   * [License](#license)
 
 
@@ -46,9 +45,11 @@ ${data.test}
 ${data.license} 
 
  ## Questions
- Please reachout if you have any questions.
- ${data.email}
- https://github.com/${data.github} 
+ Please conatct me if you have any questions or concerns.
+
+ \n${data.email}
+
+ \nhttps://github.com/${data.github} 
  `
 };
 

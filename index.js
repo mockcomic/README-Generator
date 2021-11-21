@@ -71,19 +71,6 @@ const promptUser =  () => {
                 },
                 {
                     type: 'input',
-                    name: 'contribution ',
-                    message: 'Provide contribution guidelines for the project (Required)',
-                    validate: usageInput => {
-                        if (usageInput) {
-                            return true;
-                        } else {
-                            console.log('Please provide contribution guidelines!');
-                            return false;
-                        };
-                    }
-                },
-                {
-                    type: 'input',
                     name: 'usage',
                     message: 'Provide usage information for the project (Required)',
                     validate: usageInput => {
