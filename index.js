@@ -1,23 +1,49 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateMarkdown = require ('./utils/generateMarkdown')
+const generateMarkdown = require('./utils/generateMarkdown')
 
-const promptUser = () => {
-    return inquirer.prompt(
-            [{
-                    type: 'input',
-                    name: 'title',
-                    message: 'Project title:',
-                    validate: titleInput => {
-                        if (titleInput) {
-                            return true;
-                        } else {
-                            console.log('Please enter a project title!');
-                            return false;
-                        };
-                    }
-                },
-                {
+const promptUser =  () => {
+    inquirer.prompt(
+        [{
+            type: 'input',
+            name: 'title',
+            message: 'Project title:',
+            validate: titleInput => {
+                if (titleInput) {
+                    return true;
+                } else {
+                    console.log('Please enter a project title!');
+                    return false;
+                };
+            }
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'What is your GitHub username? (Required)',
+            validate: testInput => {
+                if (testInput) {
+                    return true;
+                } else {
+                    console.log('Please enter you GitHub username!');
+                    return false;
+                };
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is your email? (Required)',
+            validate: testInput => {
+                if (testInput) {
+                    return true;
+                } else {
+                    console.log('Please enter you email!');
+                    return false;
+                };
+            }
+        },
+        {
                     type: 'input',
                     name: 'description',
                     message: 'Provide a description of the project (Required)',
@@ -45,33 +71,33 @@ const promptUser = () => {
                 },
                 {
                     type: 'input',
-                    name: 'usage',
-                    message: 'Provide usage information for the project (Required)',
-                    validate: usageInput => {
-                        if (usageInput) {
-                            return true;
-                        } else {
-                            console.log('Please provide usage information!');
-                            return false;
-                        };
-                    }
-                },
-                {
-                    type: 'input',
-                    name: 'usage',
-                    message: 'Provide usage information for the project (Required)',
-                    validate: usageInput => {
-                        if (usageInput) {
-                            return true;
-                        } else {
-                            console.log('Please provide usage information!');
-                            return false;
-                        };
-                    }
-                },
-                {
-                    type: 'input',
                     name: 'contribution ',
+                    message: 'Provide contribution guidelines for the project (Required)',
+                    validate: usageInput => {
+                        if (usageInput) {
+                            return true;
+                        } else {
+                            console.log('Please provide contribution guidelines!');
+                            return false;
+                        };
+                    }
+                },
+                {
+                    type: 'input',
+                    name: 'usage',
+                    message: 'Provide usage information for the project (Required)',
+                    validate: usageInput => {
+                        if (usageInput) {
+                            return true;
+                        } else {
+                            console.log('Please provide usage information!');
+                            return false;
+                        };
+                    }
+                },
+                {
+                    type: 'input',
+                    name: 'contribution',
                     message: 'Provide contribution guidelines for the project (Required)',
                     validate: contributionInput => {
                         if (contributionInput) {
@@ -84,7 +110,7 @@ const promptUser = () => {
                 },
                 {
                     type: 'input',
-                    name: 'test ',
+                    name: 'test',
                     message: 'Provide test instructions for the project (Required)',
                     validate: testInput => {
                         if (testInput) {
@@ -101,22 +127,19 @@ const promptUser = () => {
                     message: 'Please select a license.',
                     choices: ['None', 'MIT License', 'GNU GPL v3', 'Apache 2.0 License']
                 },
-            ]).then((data) => {
-            questions = {data};
-            generateMarkdown(questions);
-            // writeToFile(questions);
-        })
+            ])
+        .then(data => generateMarkdown(data))
+        .then(stringData => writeToFile(stringData))
         .catch((error) => {
             console.log(error);
         });
-
 };
 
 // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
 
 const writeToFile = (data) => {
-     fs.writeFile('./dist/README.md', JSON.stringify(data, null, '\t'), function (err) {
+    fs.writeFile('./dist/README.md', data, function (err) {
         if (err) {
             return console.log(err);
         }
@@ -127,7 +150,7 @@ const writeToFile = (data) => {
 
 // TODO: Create a function to initialize app
 function init() {
-     promptUser();
+    promptUser();
 };
 
 // Function call to initialize app
