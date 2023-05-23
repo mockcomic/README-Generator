@@ -1,40 +1,41 @@
+# README File Generator
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-  # README file Generator 
-  [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-  
-  ## Table of Contents 
-  
-  * [Installation](#installation)
-  * [Usage](#usage)
-  * [Contributing](#Contributing)
-  * [License](#license)
+## Table of Contents 
 
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [License](#license)
+* [Questions](#questions)
 
- ## Description
-  This application generates a README file for you to use in your project. Feel free to add to the file after it's been generated.
+## Description
+The README File Generator is an application designed to generate a README file for your project. It provides a basic template that you can expand upon to suit your project's specific needs.
 
- ## Installation
- First clone the repo to your local drive. Run "npm install" to install the dependacies. To run the program you need to run "node index.js".
- 
- ## Usage 
-   You will be prompted questions to create your README file. Once you answer all the questions the file will be generated in the dist folder.
- 
- ## Contributing
- Feel free to fork off of the repo and create pull requests.
- 
- ## Tests
- There currenlty no tests written for this project. I'm planning on revisiting this project when I am more familiar with jest.  
+## Installation
+To install the application, follow these steps:
 
----
+1. Clone the repository to your local drive.
+2. Run `npm install` in the root directory of the cloned repository to install the necessary dependencies.
+3. To execute the program, run `node index.js` in your terminal.
+
+## Usage 
+Upon running the program, you'll be prompted with a series of questions related to your project. Your responses will form the basis of your README file. The generated file can be found in the `dist` folder.
+
+## Contributing
+Contributions to the project are welcome! Feel free to fork the repository and submit pull requests for any enhancements you have in mind.
+
+## Tests
+As of now, no tests have been written for this project. Future plans involve introducing test scripts using Jest once familiarization with the library is complete.
+
 ## License
-Apache 2.0 License 
+This project is licensed under the terms of the Apache 2.0 License.
 
- ## Questions
- Please conatct me if you have any questions or concerns.
+## Questions
+For any questions or concerns, please contact me:
 
- 
-gears2525@aol.com
+Email: gears2525@aol.com
 
- 
-https://github.com/mockcomic 
- 
+GitHub: [mockcomic](https://github.com/mockcomic)
